@@ -1,0 +1,1 @@
+A logging class written as part of a web programming course.
