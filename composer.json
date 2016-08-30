@@ -1,0 +1,22 @@
+{
+    "name": "ultimadark/logger",    
+    "type": "library",
+    "description": "A class for logging timed durations when loading a page",
+    "keywords": ["logging", "logger", "log"],
+    "homepage": "http://eddeland.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Simon Eddeland",
+            "email": "none",
+            "homepage": "http://eddeland.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": { "ultimadark\\": "src/" }
+    }
+}
