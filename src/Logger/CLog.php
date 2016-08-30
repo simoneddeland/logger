@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\Logger;
+namespace ultimadark\Logger;
 
 /**
  * Class to log what happens.
