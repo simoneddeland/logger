@@ -1,5 +1,6 @@
 <?php
-namespace Anax\Logger;
+
+namespace ultimadark\Logger;
 
 /**
  * Logger controller

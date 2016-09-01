@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\Logger;
+namespace ultimadark\Logger;
 
 /**
  * To attach comments-flow to a page or some content.
