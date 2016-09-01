@@ -1,5 +1,5 @@
 <?php
-namespace ultimadark\Logger;
+namespace Anax\Logger;
 
 /**
  * Logger controller
@@ -17,19 +17,17 @@ class LogtesterController implements \Anax\DI\IInjectionAware
     */
     public function initialize()
     {
-        $this->logger->TimeStamp("LogTesterController", "initialize");
+        $this->logger->timestamp("LogTesterController", "initialize");
         $this->calculator = new \Anax\Logger\CLogTesterCalculator();
         $this->calculator->setDI($this->di);
     }
 
     public function indexAction()
     {
-        $this->logger->TimeStamp("LogTesterController", "indexAction", "Innan title");
+        $this->logger->timestamp("LogTesterController", "indexAction", "Innan title");
         $this->theme->setTitle("Testing logger class");
         $this->calculator->calculateBigSum();
-        $this->logger->TimeStamp("LogTesterController", "indexAction", "Efter title");
-        $this->views->addString($this->logger->TimeStampAsTable());
+        $this->logger->timestamp("LogTesterController", "indexAction", "Efter title");
+        $this->views->addString($this->logger->timeStampAsTable());
     }
-
-
 }
