@@ -20,7 +20,7 @@ The easiest way to make your CLog object available during development is to load
 
 ```php
 $this->setShared('logger', function () {
-    $logger = new \ultimadark\Logger\CLog(4);
+    $logger = new \ultimadark\Logger\CLog();
     return $logger;
 });
 ```
