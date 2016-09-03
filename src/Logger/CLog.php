@@ -67,7 +67,7 @@ class CLog
         // Set up the table
         $first = $this->timestamp[0]['when'];
         $last = $this->timestamp[count($this->timestamp) - 1]['when'];
-        $html = "<table class=table><caption>Timestamps</caption><tr><th>Domain</th><th>Where</th><th>When (sec)</th><th>Duration (sec)</th><th>Percent</th><th>Memory (MB)</th><th>Memory peak (MB)</th><th>Comment</th></tr>";
+        $html = "<table class='logtable'><caption>Timestamps</caption><tr><th>Domain</th><th>Where</th><th>When (sec)</th><th>Duration (sec)</th><th>Percent</th><th>Memory (MB)</th><th>Memory peak (MB)</th><th>Comment</th></tr>";
         $right = ' style="text-align: right;"';
         $total = array('domain' => array(), 'where' => array());
 
@@ -86,7 +86,7 @@ class CLog
             @$total['where'][$val['where']] += $duration;
         }
 
-        $html .= "</table><table class=table><caption>Duration per domain</caption><tr><th>Domain</th><th>Duration</th><th>Percent</th></tr>";
+        $html .= "</table><table class='logtable'><caption>Duration per domain</caption><tr><th>Domain</th><th>Duration</th><th>Percent</th></tr>";
     
     
         // Create the table grouped by domain   
@@ -102,7 +102,7 @@ class CLog
             $html .= "<tr><td>{$key}</td><td>{$val}</td><td>{$percent}</td></tr>";
         }
 
-        $html .= "</table><table class=table><caption>Duration per area</caption><tr><th>Area</th><th>Duration</th><th>Percent</th></tr>";
+        $html .= "</table><table class='logtable'><caption>Duration per area</caption><tr><th>Area</th><th>Duration</th><th>Percent</th></tr>";
     
         // Create the table grouped by area
         arsort($total['where']);
@@ -143,7 +143,47 @@ class CLog
      */
     public function memoryPeak()
     {
-        $peek = round(memory_get_peak_usage(true) / 1024 / 1024, 2);
-        return $peek;
+        $peak = round(memory_get_peak_usage(true) / 1024 / 1024, 2);
+        return $peak;
+    }
+
+    /**
+     * Get the number of timestamps made so far.
+     *
+     * @return Number of timestamps.
+     *
+     */
+    public function numberOfTimestamps()
+    {
+        return count($this->timestamp);
+    }
+
+    /**
+     * Get the most time consuming domain.
+     *
+     * @return The most time consuming domain.
+     *
+     */
+    public function mostTimeConsumingDomain()
+    {
+        $total = array();
+
+        // Gather total duration data of each domain
+        foreach ($this->timestamp as $val) {
+            $duration = round($val['duration'], $this->precision);
+            @$total[$val['domain']] += $duration;
+        }
+
+        // Get the key of the most time consuming element
+        $mostConsumingTime = 0;
+        $mostConsumingDomain = "";
+        foreach ($total as $key => $val) {
+            if ($val >= $mostConsumingTime) {
+                $mostConsumingDomain = $key;
+                $mostConsumingTime = $val;
+            }
+        }
+
+        return $mostConsumingDomain;
     }
 }
