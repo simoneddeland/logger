@@ -99,7 +99,8 @@ class CLog
                 $percent = 100;
             }
 
-            $html .= "<tr><td>{$key}</td><td>{$val}</td><td>{$percent}</td></tr>";
+            $roundedDuration = round($val, $this->precision);
+            $html .= "<tr><td>{$key}</td><td>{$roundedDuration}</td><td>{$percent}</td></tr>";
         }
 
         $html .= "</table><br><table class='logtable'><caption>Duration per area</caption><tr><th>Area</th><th>Duration</th><th>Percent</th></tr>";
@@ -113,7 +114,9 @@ class CLog
             } else {
                 $percent = 100;
             }  
-            $html .= "<tr><td>{$key}</td><td>{$val}</td><td>{$percent}</td></tr>";
+
+            $roundedDuration = round($val, $this->precision);
+            $html .= "<tr><td>{$key}</td><td>{$roundedDuration}</td><td>{$percent}</td></tr>";
         }
 
         $html .= "</table>";
