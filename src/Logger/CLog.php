@@ -82,11 +82,11 @@ class CLog
             $peak     = isset($val['memory-peak']) ? round($val['memory-peak'] / 1024 / 1024, 2): 0;
             $when     = round($when, $this->precision);
             $html .= "<tr><td>{$val['domain']}</td><td>{$val['where']}</td><td{$right}>{$when}</td><td{$right}>{$duration}</td><td{$right}>{$percent}</td><td{$right}>{$memory}</td><td{$right}>{$peak}</td><td>{$val['comment']}</td></tr>";
-            @$total['domain'][$val['domain']] += $duration;
-            @$total['where'][$val['where']] += $duration;
+            @$total['domain'][$val['domain']] += $val['duration'];
+            @$total['where'][$val['where']] += $val['duration'];
         }
 
-        $html .= "</table><table class='logtable'><caption>Duration per domain</caption><tr><th>Domain</th><th>Duration</th><th>Percent</th></tr>";
+        $html .= "</table><br><table class='logtable'><caption>Duration per domain</caption><tr><th>Domain</th><th>Duration</th><th>Percent</th></tr>";
     
     
         // Create the table grouped by domain   
@@ -102,7 +102,7 @@ class CLog
             $html .= "<tr><td>{$key}</td><td>{$val}</td><td>{$percent}</td></tr>";
         }
 
-        $html .= "</table><table class='logtable'><caption>Duration per area</caption><tr><th>Area</th><th>Duration</th><th>Percent</th></tr>";
+        $html .= "</table><br><table class='logtable'><caption>Duration per area</caption><tr><th>Area</th><th>Duration</th><th>Percent</th></tr>";
     
         // Create the table grouped by area
         arsort($total['where']);
