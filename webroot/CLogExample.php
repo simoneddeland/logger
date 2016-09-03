@@ -11,8 +11,8 @@ ini_set('output_buffering', 0);   // Do not buffer outputs, write directly
 //
 require "../src/Logger/CLog.php";
 
-// Create new CLog object, set precision to 2 decimals
-$log = new \ultimadark\Logger\CLog(2);
+// Create new CLog object, set precision to 3 decimals (default is 3)
+$log = new \ultimadark\Logger\CLog(3);
 
 $log->timestamp("ExampleClass", "Beginning of file");
 
