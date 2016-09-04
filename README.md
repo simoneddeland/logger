@@ -1,4 +1,6 @@
 # CLog - A class for logging timestamps
+[![Build Status](https://travis-ci.org/simoneddeland/logger.svg?branch=master)](https://travis-ci.org/simoneddeland/logger)
+
 A logging class written as part of a web programming course. Can easily be used with the Anax web framework.
 
 The class CLog can be used to identify which parts of your PHP code are running slowly.
