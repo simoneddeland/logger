@@ -43,7 +43,7 @@ class CLogTest extends \PHPUnit_Framework_TestCase
         $res = $log->timestampAsTable();
 
         $exp = 'logtable';
-        $this->assertContains($res, $exp, "The table is not using the correct css class");
+        $this->assertContains($exp, $res, "The table is not using the correct css class");
 
     }    
 
@@ -60,7 +60,7 @@ class CLogTest extends \PHPUnit_Framework_TestCase
         $log->timestamp("testdomain", "test");
         $log->timestamp("testdomain", "test");
 
-        $res = $log->timestampAsTable();
+        $res = $log->mostTimeConsumingDomain();
 
         $exp = 'testdomain';
         $this->assertEquals($res, $exp, "The most time consuming domain is not correct.");
