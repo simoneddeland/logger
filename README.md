@@ -1,5 +1,5 @@
 # CLog - A class for logging timestamps
-[![Build Status](https://travis-ci.org/simoneddeland/logger.svg?branch=master)](https://travis-ci.org/simoneddeland/logger)
+[![Build Status](https://travis-ci.org/simoneddeland/logger.svg?branch=master)](https://travis-ci.org/simoneddeland/logger) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/simoneddeland/logger/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/simoneddeland/logger/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/simoneddeland/logger/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/simoneddeland/logger/?branch=master)
 
 A logging class written as part of a web programming course. Can easily be used with the Anax web framework.
 
