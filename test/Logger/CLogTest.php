@@ -65,6 +65,27 @@ class CLogTest extends \PHPUnit_Framework_TestCase
         $exp = 'testdomain';
         $this->assertEquals($res, $exp, "The most time consuming domain is not correct.");
 
-    }   
+    }
+
+    /**
+     * Test
+     *
+     * @return void
+     *
+     */
+    public function testMethodReturnTypes()
+    {
+        $log = new \ultimadark\Logger\CLog();
+        
+        $log->timestamp("testdomain", "test");
+        $log->timestamp("testdomain", "test");
+
+        $memres = $log->memoryPeak();
+        $loadres = $log->pageLoadTime();
+
+        $this->assertInternalType('float', $memres);
+        $this->assertInternalType('float', $loadres);
+
+    }
 
 }
